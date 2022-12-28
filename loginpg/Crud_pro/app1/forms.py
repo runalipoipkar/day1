@@ -21,4 +21,5 @@ class OrderForm(forms.ModelForm):
                     'type':'date'
                 }
             )
+            
         }
