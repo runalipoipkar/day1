@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block title %}
+    <title>Delete Confirmation</title>
+{% endblock %}
+
+{% block content %}
+<div class="container jumbotron">
+    <form method="post">
+        {% csrf_token %}
+        <center><p> DO YOU REALLY WANT TO DELETE THIS <span style="color:red;">{{data.id}}{{data.product_name}}</span>RECORD?</p></center>
+        <input type="button" value="YES" class="btn btn-outline-danger col-6">
+        <button class="btn btn-outline-warning col-6 float-right"><a href="{% url 'show_url' %}">NO</a></button>
+    </form>
+</div>
+
+
+
+{% endblock %}
+

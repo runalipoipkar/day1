@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block title %}
+    <title>Summury</title>
+{% endblock %}
+
+{% block content %}
+<table class="table table_dark">
+    <thead>
+        <tr>
+            <th>ORDER ID</th>
+            <th>PRODUCT</th>
+            <th>QUANTITY</th>
+            <th>DELIVERY</th>
+            <th>PRICE</th>
+            <th>ADDRESS</th>
+            <th>PHONE</th>
+            <th>ACTION</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        {% for i in data %}
+            <tr>
+                <td>{{i.oid}}</td>
+                <td>{{i.product_name}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.del_date}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.phone}}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm"><a href="{% url 'update_url' i.id %}">Update</a></button>
+                    <button class="btn btn-danger btn-sm"><a href="{% url 'delete_url'  i.id %}">Delete</a></button>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
